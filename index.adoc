@@ -1,0 +1,54 @@
+= Test document
+:imagesdir: img
+:toc:
+
+== Headings
+
+=== Section level 2
+
+==== Section level 3
+
+== Inline formatting
+
+*bold text*
+
+_italic text_
+
+`monospace text`
+
+== Lists
+
+* First unordered item
+* Second unordered item
+
+. First numbered item
+. Second numbered item
+
+== Links
+
+
+
+// link:https://example.com[External link]
+
+== Image
+
+image::Photo.png[Alt text,width=600]
+
+== Code block
+
+[source,bash]
+----
+git status
+git add .
+git commit -m "Update documentation"
+----
+
+== Table
+
+|===
+|Command |Purpose
+
+|git status |Show repository changes
+
+|git pull |Get the latest changes
+|===
