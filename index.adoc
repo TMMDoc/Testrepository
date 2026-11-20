@@ -1,8 +1,12 @@
 = Test document
 :imagesdir: img
-:toc:
+:icons: font
+
+This is a test document.
 
 == Headings
+
+This is a sub heading.
 
 === Section level 2
 
@@ -19,20 +23,22 @@ _italic text_
 == Lists
 
 * First unordered item
+** sub list
+*** test
 * Second unordered item
+* third line
 
 . First numbered item
 . Second numbered item
+. third line
+.. sub numbered list
 
 == Links
 
 
-
-// link:https://example.com[External link]
-
 == Image
 
-image::Photo.png[Alt text,width=600]
+image::Photo.png[Alt text,]
 
 == Code block
 
