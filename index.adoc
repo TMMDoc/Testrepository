@@ -1,54 +1,106 @@
-= Test document
+= Welcome to Praxis
 :imagesdir: img
-:toc:
+:iconS : font
 
-== Headings
+image::praxis.webp[300,300]
 
-=== Section level 2
+* Praxis is a smart factory solution for sheet metal shoop floor.
+* Developed by Metamation.
+* It is the flagship product of Metamation India Pvt Ltd. 
 
-==== Section level 3
+== Installation
 
-== Inline formatting
+:toc: 
 
-*bold text*
+=== Hardware requirement
 
-_italic text_
+|===
+|*Component* |*Standard* |*High Performance*
+|CPU |1 CPU, 2.5-3GHz in 4 cores |2 CPUs, 2.5-3GHz in 8 cores or more
+|Memory(RAM) |16GB |>=32GB
+|HardDisk |500GB-1TB SSD or more |>=1TB SSD
+|Video Graphics Card |2GB with OpenGL 3.2 built in or dedicated |2GB with OpenGL 3.2 built in or dedicated
+|OS |Windows Server 2012 or later| Windows Server 2012 or later
+|SQL Server |SQL 2017 or later |SQL 2017 or later
+|Windows user account |Need a standard user account| Need a standard user accountats
+|===
 
-`monospace text`
+==== Server Requirement
+Praxis supports direct CAD import. The availability of import formats depends on the license configuration.
 
-== Lists
+=== Prerequisites
+NOTE: Praxis setup displays the below mentioned warning message at the beginning of Installation if the Praxis setup is run without first running the Prerequisites. 
 
-* First unordered item
-* Second unordered item
+=== Server installation
+Follow the instructions to install Praxis Server installation along with SQL.
 
-. First numbered item
-. Second numbered item
+IMPORTANT: [red]#Administrator Rights# +
+*To execute this installation, user must have administrative privileges.*
 
-== Links
+=== Client installation
+WARNING: *Run Prerequisites Installation like Server before beginning the Client setup. Execute Praxis Client installation with the Computer Login User having administrative privileges.*
 
+=== Change license
+Clicking on View you can select Details and the information about your current license will be displayed.
 
+== Configuration
+=== The user interface
+=== Workflow
 
-// link:https://example.com[External link]
+Praxis is a Manufacturing Execution System that manages and optimizes sheet metal manufacturing processes. A workflow in Praxis consists of a series of steps that you follow to complete a specific task or process. You can customize the workflow to fit different manufacturing processes and adapt it to your specific needs. The workflow in Praxis typically includes the following steps:
 
-== Image
+==== 1. Configure the system
+Configure Praxis to match your manufacturing environment
 
-image::Photo.png[Alt text,width=600]
+==== 2. Add parts to the library
+Import 2D or 3D CAD parts into the Part Library using supported formats such as DXF, DWG, or STEP files
+
+==== 3. Verify parts and tooling
+Review each imported part for potential production issues.
+
+====  4. Organize parts into jobs
+Group validated parts into jobs based on production requirements. 
+
+==== 5. Plan jobs to production machines
+Once a job is created, assign it to an appropriate production machine. 
+
+==== 6. Release NC for jobs
+At this stage, cut layouts are generated. 
+
+==== 7. Complete production and finalize jobs
+Execute the released job on the assigned machine.
+
+== Library
+=== Open
+==== *_Import parts_*
+. Import via file
+. Drag and drop
+. Watch folder
+
+==== *_Import jobs_*
+. If all Parts exists in the csv location or in lookup folder directories, new job window appears by listing all parts matching the csv fields.
+. Missing parts are ignored and not appears in the new job window.
+. Initially Part status is Nascent.
+
+==== *_Import assemblies_*
+. Import via file
+. Drag and drop
+. Import from spreadsheet
+
+==== _Import orders_
+* Import orders from spreadsheet
+
+===== New orders
+|===
+|*S.no* |*Qty* |*Due on* |*Priority* |*Material* |*Flat Size*  
+|CM094 |20 |05/23/2026 |Normal |Sheet-20 |_2284X128_ 
+|CM03 |16 |05/23/2026 |Normal |Sheet-20 |_2284X256_
+|===
 
 == Code block
 
-[source,bash]
+[source,C#]
 ----
-git status
-git add .
-git commit -m "Update documentation"
+Console.WriteLine("This is Praxis ");
+Console.WriteLine("Praxis is Launching");
 ----
-
-== Table
-
-|===
-|Command |Purpose
-
-|git status |Show repository changes
-
-|git pull |Get the latest changes
-|===

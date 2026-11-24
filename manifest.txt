@@ -1,4 +1,4 @@
-TITLE=Test Documentation
+TITLE=Metamation Software
 OUTDIR=../TestDocHTML
-LOGO=img/logo.png,207,34
+LOGO=img/logo.png
 COPYRIGHT=Copyright &copy; 2026 TRUMPF Metamation. All rights reserved.
