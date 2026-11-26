@@ -1,54 +1,177 @@
-= Test document
+= Create: From Profile
 :imagesdir: img
 :toc:
-
-== Headings
-
-=== Section level 2
-
-==== Section level 3
-
-== Inline formatting
-
-*bold text*
-
-_italic text_
-
-`monospace text`
-
-== Lists
-
-* First unordered item
-* Second unordered item
-
-. First numbered item
-. Second numbered item
-
-== Links
-
-
-
-// link:https://example.com[External link]
-
-== Image
-
-image::Photo.png[Alt text,width=600]
-
-== Code block
-
-[source,bash]
-----
-git status
-git add .
-git commit -m "Update documentation"
-----
-
-== Table
-
+:toc-title: Table of Contents
+:toclevels: 3
+:sectnums:
+ 
+== Scenario Overview
+ 
+[cols="1,2", options="header"]
 |===
-|Command |Purpose
-
-|git status |Show repository changes
-
-|git pull |Get the latest changes
+|Scenario Name |Test Case Titles
+ 
+|From Profile
+a|
+* Clone Profile
+* Rename Profile
+* Delete Profile
+* Import DXF Profile
+* Invalid DXF Import
+* Extrude Profile
+* Invalid Extrude Profile
+* Edit Length Dimension
+* Invalid Length Validation
 |===
+ 
+== Scenario: From Profile
+ 
+*Description:* Verify that the From Profile module functions according to the requirements.
+ 
+.Overall RA interface - Create > Profiles (Profile Library)
+image::Profile_Library.png[Create Profiles screen,width=700]
+ 
+== Test Cases
+ 
+=== Clone Profile
+ 
+*Description:* Verify that the user can create a copy of an existing profile using the Clone option.
+ 
+*Steps:*
+ 
+. Navigate to the Create section.
+. Select the From Profile option.
+. Select an existing profile from the Profile Library.
+. Click the Clone option.
+ 
+*Expected Result:* A copy of the selected profile should be created and displayed in the Profile Library.
+ 
+=== Rename Profile
+ 
+*Description:* Verify that the user can rename an existing profile using the Rename option.
+ 
+*Steps:*
+ 
+. Navigate to the Create section.
+. Select the From Profile option.
+. Select an existing profile from the Profile Library.
+. Click the Rename option.
+. Enter a new profile name as Sample 1.
+. Click the tick option.
+ 
+*Expected Result:* The selected profile should be renamed as Sample 1 successfully.
+ 
+=== Delete Profile
+ 
+*Description:* Verify that the user can delete an existing profile using the Delete option.
+ 
+*Steps:*
+ 
+. Navigate to the Create section.
+. Select the From Profile option.
+. Select an existing profile from the Profile Library.
+. Click the Delete option.
+. Select the tick option in the confirmation message.
+ 
+*Expected Result:* The selected profile should be deleted successfully from the Profile Library.
+ 
+=== Import DXF Profile
+ 
+*Description:* Verify that the user can import a DXF file containing the side view of a part.
+ 
+*Steps:*
+ 
+. Navigate to the Create section.
+. Select the From Profile option.
+. Click the Import option.
+. Select the required DXF file containing the side view of the part.
+. Select the tick option to open the editor profile.
+. Select the tick option in the editor profile.
+ 
+*Expected Result:* The selected DXF file containing the side view of the part should be imported successfully into the Profile Library.
+ 
+=== Invalid DXF Import
+ 
+*Description:* Verify that the system gives the warning message "Not able to extract profile from DXF" when the selected DXF file does not contain the side view of the part.
+ 
+*Steps:*
+ 
+. Navigate to the Create section.
+. Select the From Profile option.
+. Click the Import option.
+. Select a DXF file that does not contain the side view of a part.
+. Select the tick option to open the editor profile.
+. Select the tick option in the editor profile.
+ 
+*Expected Result:* The system should display the "Not able to extract profile from DXF" message indicating that the profile cannot be imported.
+ 
+=== Extrude Profile
+ 
+*Description:* Verify that the user can extrude an existing profile by specifying the extrusion value.
+ 
+*Steps:*
+ 
+. Navigate to the Create section.
+. Select the From Profile option.
+. Select an existing profile.
+. Click the Extrude option.
+. Enter the extrusion value as 400 within the range 10 to 3562 in the Part Settings dialog.
+. Click Done.
+ 
+*Expected Result:* The selected profile should be extruded using 400 as the extrusion value and the profile should be included in the Run page.
+ 
+=== Invalid Extrude Profile
+ 
+*Description:* Verify that the error message of Range 10 to 3562 is displayed when the extrusion value is beyond that range.
+ 
+*Steps:*
+ 
+. Navigate to the Create section.
+. Select the From Profile option.
+. Select an existing profile.
+. Click the Extrude option.
+. Enter the extrusion value as 5500 in the Part Settings dialog.
+. Press Enter.
+ 
+*Expected Result:* The system should display the error message "Range: 10 to 3562" for the extrusion value.
+ 
+=== Edit Length Dimension
+ 
+*Description:* Verify that the user can change the length dimension of a profile segment in the profile editor.
+ 
+*Steps:*
+ 
+. Navigate to the Create section.
+. Select the From Profile option.
+. Select an existing profile from the Profile Library.
+. Click the Edit option.
+. Select the length dimension of the horizontal segment.
+. Enter the length value as 500 using the on-screen keypad.
+. Press Enter.
+ 
+*Expected Result:* The length dimension should be updated to 500 and the profile should be redrawn with the new length.
+ 
+.Entering the new length value (500) using the keypad
+image::Edit_Length_Keypad.png[Edit length dimension,width=600]
+ 
+.Profile after the length dimension is updated to 500
+image::Edit_Length_Result.png[Updated length dimension,width=600]
+ 
+=== Invalid Length Validation
+ 
+*Description:* Verify that the error message of Range 5 to 10000 is displayed when the length value entered is beyond that range.
+ 
+*Steps:*
+ 
+. Navigate to the Create section.
+. Select the From Profile option.
+. Select an existing profile from the Profile Library.
+. Click the Edit option.
+. Select the length dimension of the horizontal segment.
+. Enter the length value as 500000 using the on-screen keypad.
+. Press Enter.
+ 
+*Expected Result:* The system should display the error message "Range: 5 to 10000" for the length value.
+ 
+.Error message displayed for an out-of-range length value
+image::Invalid_Length_Error.png[Invalid length error,width=600]
