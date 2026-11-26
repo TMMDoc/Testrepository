@@ -1,0 +1,4 @@
+= Client installation
+
+:icons : font
+WARNING: *Run Prerequisites Installation like Server before beginning the Client setup. Execute Praxis Client installation with the Computer Login User having administrative privileges.*

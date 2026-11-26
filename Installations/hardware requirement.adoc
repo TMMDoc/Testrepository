@@ -1,0 +1,12 @@
+= Hardware requirement
+
+|===
+|*Component* |*Standard* |*High Performance*
+|CPU |1 CPU, 2.5-3GHz in 4 cores |2 CPUs, 2.5-3GHz in 8 cores or more
+|Memory(RAM) |16GB |>=32GB
+|HardDisk |500GB-1TB SSD or more |>=1TB SSD
+|Video Graphics Card |2GB with OpenGL 3.2 built in or dedicated |2GB with OpenGL 3.2 built in or dedicated
+|OS |Windows Server 2012 or later| Windows Server 2012 or later
+|SQL Server |SQL 2017 or later |SQL 2017 or later
+|Windows user account |Need a standard user account| Need a standard user accountats
+|===

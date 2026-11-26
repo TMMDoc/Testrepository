@@ -1,0 +1,8 @@
+
+= The user interface
+
+The Praxis user interface provides access to all major functions through the command bar and menu bar, enabling efficient navigation and operation.
+
+:imagedir: img:
+
+image::img/userinterface.png[500,500]

@@ -1,0 +1,3 @@
+= Change license
+
+Clicking on View you can select Details and the information about your current license will be displayed.

@@ -1,0 +1,5 @@
+= Import parts
+
+. Import via file
+. Drag and drop
+. Watch folder

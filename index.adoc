@@ -1,54 +1,20 @@
-= Test document
+= Welcome to Praxis
 :imagesdir: img
+:icons : font
 :toc:
 
-== Headings
+== Introduction to Praxis
 
-=== Section level 2
+image::praxis.png[300,300]
 
-==== Section level 3
-
-== Inline formatting
-
-*bold text*
-
-_italic text_
-
-`monospace text`
-
-== Lists
-
-* First unordered item
-* Second unordered item
-
-. First numbered item
-. Second numbered item
-
-== Links
-
-
-
-// link:https://example.com[External link]
-
-== Image
-
-image::Photo.png[Alt text,width=600]
+* Praxis is a smart factory solution for sheet metal shoop floor.
+* Developed by Metamation.
+* It is the flagship product of Metamation India Pvt Ltd.
 
 == Code block
 
-[source,bash]
+[source,C#]
 ----
-git status
-git add .
-git commit -m "Update documentation"
+Console.WriteLine("This is Praxis ");
+Console.WriteLine("Praxis is Launching");
 ----
-
-== Table
-
-|===
-|Command |Purpose
-
-|git status |Show repository changes
-
-|git pull |Get the latest changes
-|===

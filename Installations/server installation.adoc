@@ -1,0 +1,7 @@
+= Server installation
+
+Follow the instructions to install Praxis Server installation along with SQL.
+
+:icons : font
+IMPORTANT: [red]#Administrator Rights# +
+*To execute this installation, user must have administrative privileges.*

@@ -1,0 +1,27 @@
+
+= Workflow
+
+:toc: 
+
+Praxis is a Manufacturing Execution System that manages and optimizes sheet metal manufacturing processes. A workflow in Praxis consists of a series of steps that you follow to complete a specific task or process. You can customize the workflow to fit different manufacturing processes and adapt it to your specific needs. The workflow in Praxis typically includes the following steps:
+
+== 1. Configure the system
+Configure Praxis to match your manufacturing environment
+
+== 2. Add parts to the library
+Import 2D or 3D CAD parts into the Part Library using supported formats such as DXF, DWG, or STEP files
+
+== 3. Verify parts and tooling
+Review each imported part for potential production issues.
+
+==  4. Organize parts into jobs
+Group validated parts into jobs based on production requirements. 
+
+== 5. Plan jobs to production machines
+Once a job is created, assign it to an appropriate production machine. 
+
+== 6. Release NC for jobs
+At this stage, cut layouts are generated. 
+
+== 7. Complete production and finalize jobs
+Execute the released job on the assigned machine.

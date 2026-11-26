@@ -1,0 +1,10 @@
+= Import orders
+
+* Import orders from spreadsheet
+
+== New orders
+|===
+|*S.no* |*Qty* |*Due on* |*Priority* |*Material* |*Flat Size*  
+|CM094 |20 |05/23/2026 |Normal |Sheet-20 |_2284X128_ 
+|CM03 |16 |05/23/2026 |Normal |Sheet-20 |_2284X256_
+|===

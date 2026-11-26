@@ -1,0 +1,11 @@
+= Configuration
+
+The following topics are explained in Configuration chapter:
+
+* xref:Add or Remove machine[Add/Remove machine]
+* Setup tooling
+* Configure users
+* Material
+* Map material
+* Map CAM pages
+* Map fields from CAD

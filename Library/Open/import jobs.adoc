@@ -1,0 +1,5 @@
+= Import jobs
+
+. If all Parts exists in the csv location or in lookup folder directories, new job window appears by listing all parts matching the csv fields.
+. Missing parts are ignored and not appears in the new job window.
+. Initially Part status is Nascent.
