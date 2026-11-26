@@ -1,54 +1,174 @@
-= Test document
+= Machine Setup in Vulcan
 :imagesdir: img
 :toc:
+:icons: font
 
-== Headings
+== Introduction
 
-=== Section level 2
+The Setup page is where you prepare the laser machine before cutting. You move
+the axes, home the machine, adjust the speed and set the work offset, all from
+the touch screen.
 
-==== Section level 3
+image::VC01.png[width=700]
 
-== Inline formatting
+== Overview
 
-*bold text*
-
-_italic text_
-
-`monospace text`
-
-== Lists
-
-* First unordered item
-* Second unordered item
-
-. First numbered item
-. Second numbered item
-
-== Links
-
-
-
-// link:https://example.com[External link]
-
-== Image
-
-image::Photo.png[Alt text,width=600]
-
-== Code block
-
-[source,bash]
-----
-git status
-git add .
-git commit -m "Update documentation"
-----
-
-== Table
-
+[cols="1,3"]
 |===
-|Command |Purpose
+|Function |Purpose
 
-|git status |Show repository changes
+|*Jogging* |Move the X, Y and Z axes and view their current positions.
 
-|git pull |Get the latest changes
+|*Speed override* |Increase or decrease the speed of axis movements, in percent.
+
+|*Homing* |Reference the axes automatically or one axis at a time.
+
+|*Settings* |Configure the step size and the modal travel speed.
+
+|*Work offset* |Define the zero point of the sheet.
 |===
+
+== Jogging
+
+Jogging moves the axes manually. The current X, Y and Z positions are shown on
+the same page. Three types of movement are available: modal travel, step travel
+and target point travel.
+
+=== Modal travel
+
+Modal travel moves the axis continuously for as long as you hold the arrow.
+
+. Press and hold an arrow for more than 300 ms (long click).
+. Keep holding. The axis moves while you hold.
+. Lift your finger or the mouse button to stop.
+
+The speed depends on where on the arrow you press.
+
+NOTE: You can configure the speeds in Settings.
+
+=== Step travel
+
+image::VC06.png[width=250, float=right]
+Step travel moves the axis one step at a time.
+
+. Click an arrow briefly (press and release within 300 ms).
+. The axis moves one step.
+
+The step size depends on where on the arrow you click: short, medium or large.
+
+NOTE: You can configure the step sizes in Settings.
+
+=== Target point travel
+
+Target point travel moves the axis to a position you enter.
+
+. Select the axis.
+. Enter the target position in the input field.
+. Press *START* to begin the movement.
+
+TIP: You can stop the movement at any time by pressing *STOP*.
+
+== Speed Override
+
+Speed override changes the speed of axis movements as a percentage of the
+configured speed.
+
+[cols="1,3"]
+|===
+|Control |Effect
+
+|*Override +* |Increases the override percentage for the configured axis or path speed.
+
+|*Override -* |Reduces the override percentage for the configured axis or path speed.
+
+|*Slider* |Increases or decreases the speed continuously.
+|===
+
+The button step size depends on the current value:
+
+[%autowidth]
+|===
+|Current override |Change per press
+
+|Above 10% |10%
+
+|Below 10% |1%
+|===
+
+image::VC02.png[width=700]
+
+== Homing
+
+Homing references the axes. Choose one of two modes:
+
+[cols="1,3,3"]
+|===
+|Mode |Use it when |How it works
+
+|*Automatic*
+|You want to reference all axes in one run.
+|Activate the function and press *START*. Reference point traversing starts
+automatically.
+
+|*Manual*
+|You want to reference a single axis.
+|Select the axis and press *START* to start reference point traversing for that
+axis.
+|===
+
+TIP: You can cancel reference point traversing at any time by pressing *STOP*.
+
+image::VC03.png[width=700]
+
+== Settings
+
+Use Settings to configure the following for each region of the arrows:
+
+* The *step size* used by step travel.
+* The *speed* used by modal travel.
+
+image::VC05.png[width=700]
+
+== Work Offset
+
+The work offset defines the zero point of the sheet. The machine can determine
+it in several ways.
+
+image::VC04.png[width=700]
+
+The work offset dialog shows the X and Y values of the offset and a *Mode*
+selection:
+
+* Positioning diode
+* Nozzle center
+* Machine zero point
+* Manual
+
+Select the mode you need.
+
+NOTE: The setting is saved even if you close the dialog with the X.
+
+=== Positioning diode
+
+This is the most common method.
+
+. Jog the green laser pointer to the desired position.
+. Press *Set*.
+
+The machine uses this position as the work offset.
+
+=== Nozzle center
+
+Use this method when the machine has already positioned the nozzle at the zero
+point. The machine uses the nozzle center as the work offset.
+
+=== Machine zero point
+
+Choose this mode to use the machine's own zero point as the work offset. The
+zero point is the fixed reference position of the machine, which is set when
+the axes are homed.
+
+=== Manual
+
+Use this method for special operations or when you work with fixtures. It lets
+you set the work offset manually.
