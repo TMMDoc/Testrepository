@@ -1,4 +1,4 @@
-TITLE=Test Documentation
+TITLE= Documentation Installation Guide
 OUTDIR=../TestDocHTML
 LOGO=img/logo.png,207,34
 COPYRIGHT=Copyright &copy; 2026 TRUMPF Metamation. All rights reserved.

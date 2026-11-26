@@ -1,54 +1,125 @@
-= Test document
+= Installation Workflow
 :imagesdir: img
 :toc:
-
-== Headings
-
-=== Section level 2
-
-==== Section level 3
-
-== Inline formatting
-
-*bold text*
-
-_italic text_
-
-`monospace text`
-
-== Lists
-
-* First unordered item
-* Second unordered item
-
-. First numbered item
-. Second numbered item
-
-== Links
-
-
-
-// link:https://example.com[External link]
-
-== Image
-
-image::Photo.png[Alt text,width=600]
-
-== Code block
-
+ 
+== Introduction
+ 
+This document provides detailed instructions for preparing the local environment to work with the documentation repository and generate the required documentation using Bento. Below are the steps to set up the environment, install necessary tools, and configure the system for documentation generation.
+ 
+== Clone the GitHub Repository
+ 
+The first step is to clone the required GitHub repository to the local system. This repository contains the documentation source files that will be used for editing, maintaining, and generating the documentation.
+ 
+Open Command Prompt and navigate to the directory where you want to store the repository. Use the following GitHub repository link to clone it: https://github.com/example/documentation.git[TestRepository].
+ 
+== Installing Microsoft Visual Studio
+ 
+Visual Studio Code is used as the primary editor for creating, editing, and managing the documentation files.
+ 
+Download Visual Studio Code from the link:https://code.visualstudio.com/download[Visual Studio Code Website].
+ 
+image::VS_Code_download.png[width = 600]
+Select the appropriate Windows version and download the installer.
+ 
+Run the installer and follow the on-screen instructions to complete the installation.
+ 
+== Installing AsciiDoc Extension
+ 
+The AsciiDoc extension provides support for working with AsciiDoc files in Visual Studio Code. It enables syntax highlighting, document preview, and a convenient editing experience.
+ 
+Open Visual Studio Code and navigate to the *Extensions* section.
+ 
+image::VS_Code_extension.png[width = 600]
+ 
+Search for *AsciiDoc* and select the extension published by Asciidoctor. Click *Install* to add the extension to Visual Studio Code.
+ 
+image::Asciidoc_extension.png[width = 600]
+ 
+== Installing Ruby
+ 
+Ruby is required to install and execute the AsciiDoc tools through RubyGems. It provides the runtime environment required by Asciidoctor and its supporting extensions.
+ 
+Download Ruby *without DevKit* from the official RubyInstaller website: https://rubyinstaller.org/downloads[Download RubyInstaller].
+ 
+image::Ruby_installer.png[width = 600]
+ 
+Go to downloads, unblock the setup file and run the installer.
+ 
+Select *Only for me* when prompted.
+ 
+At the end of the installation remove the check for *Run ridk install*.
+ 
+image::Ruby_installer_2.png[width = 600]
+ 
+Click *Finish* to complete the installation.
+ 
+== Installing AsciiDoctor Using Command Prompt
+ 
+For TRUMPF standard PC Users:
+ 
+Open command prompt and run the following commands
+ 
 [source,bash]
 ----
-git status
-git add .
-git commit -m "Update documentation"
+cmdkey /add:srv34prox.corp.trumpf.com /user:%username%
+gem install asciidoctor --http-proxy http://%username%@srv34prox.corp.trumpf.com:80
+gem install asciidoctor-html5s --http-proxy http://% username%@srv34prox.corp.trumpf.com:80
+gem install asciidoctor-diagram --http-proxy http://%username%@srv34prox.corp.trumpf.com:
+gem install asciidoctor-pdf --http-proxy http://%username%@srv34prox.corp.trumpf.com:80
 ----
 
-== Table
-
-|===
-|Command |Purpose
-
-|git status |Show repository changes
-
-|git pull |Get the latest changes
-|===
+Replace *%username%* with the actual TRUMPF username in all the commands before execution.
+ 
+After running the first command, if the error showed as *Proxy Authentication Required*, then restart the system and run the above commands again.
+ 
+== Configuring Ruby Environment
+ 
+After installing Ruby and AsciiDoctor, configure the Windows environment variables to make the installed tools accessible from any directory.
+ 
+Open the Windows Start menu and search for *Edit the system environment variables*. Open the System Properties window and click *Environment Variables*.
+ 
+Under *User variables*, select the *Path* variable and click *Edit*. Add the Ruby installation's *bin* and *Work* directories as new entries.
+ 
+For example, if Ruby is installed in C:\Ruby40-x64 and the Work folder is on the C: drive in C:\Work, add the following paths:
+ 
+[source,bash]
+----
+C:\Ruby40-x64\bin
+C:\Work
+----
+ 
+image::Environment_variable.png[width = 600]
+ 
+Remove any previously configured Ruby installation paths from the *System variables' Path* entries to avoid conflicts between different Ruby versions.
+ 
+Click *OK* to save the changes and close all the environment variable windows.
+ 
+== Run Bento
+ 
+Bento is used to process the AsciiDoc source files and generate the HTML documentation.
+ 
+First, copy the *Bento.exe* file from the cloned GitHub repository and paste it into the C:\Work folder.
+ 
+Open Command Prompt. Execute the following command to verify the Bento installation and view the available commands:
+ 
+[source,bash]
+----
+bento help
+----
+ 
+image::Bento_help.png[width = 600]
+ 
+Once the installation is verified, navigate to the repository directory where the documentation files are created using AsciiDoc.
+ 
+Open Command Prompt in that directory and execute the following command:
+ 
+[source,bash]
+----
+bento
+----
+ 
+image::Bento_run.png[width = 600]
+ 
+Bento processes the AsciiDoc source files and generates the corresponding HTML documentation in the specified output directory.
+ 
+After execution is complete, navigate to the mentioned output directory and verify that the generated HTML documentation is available.
