@@ -1,54 +1,116 @@
-= Test document
+= Working with the Bend Operation Editing Panel
 :imagesdir: img
 :toc:
 
-== Headings
+== Introduction
 
-=== Section level 2
+The Bend Operation Editing Panel provides access to the settings and operations associated with an individual bend. It allows users to adjust the bend position, change its processing behaviour, and navigate between bends in the part.
 
-==== Section level 3
+This section explains how to open the panel, understand its controls, and work with the available bend operations.
 
-== Inline formatting
+.Flux Interface
+image::Flux_Main_Window.png[Flux main window, width=600]
 
-*bold text*
+== Opening the Bend Operation Editing Panel
 
-_italic text_
+The panel can be opened using either of the following methods.
 
-`monospace text`
+=== Standard method
 
-== Lists
+. Locate the required bend in the bend navigator.
+. Click the bend once to select it.
+. Click the selected bend again to open its editing panel.
 
-* First unordered item
-* Second unordered item
+=== Quick method
 
-. First numbered item
-. Second numbered item
+. Hold down `Ctrl`.
+. Click the required bend in the bend navigator.
 
-== Links
+The bend is selected and its editing panel opens directly.
 
+== Understanding the Panel Controls
 
+.Bend Operation Editing Panel
+image::Bend_Panel.png[Bend operation editing panel, width=400, float=right]
 
-// link:https://example.com[External link]
+The panel contains several controls for adjusting how the selected bend is positioned and processed.
 
-== Image
+* **Position**: Changes the location of the bend along the machine. The value can be entered directly or adjusted by moving the part in the 3D view.
+* **Setup**: Assigns the bend to a different setup when the option is available.
+* **Station**: Changes the station associated with the selected bend.
+* **Turn Part**: Changes the part orientation by turning it over. Clicking the control again restores the previous orientation.
+* **Skip Bend**: Excludes the selected bend from the bending sequence.
+* **Coining**: Enables the coining operation when the assigned punch and die support it.
+* **Pre-bending**: Divides the bending operation into two stages: a pre-bend followed by the finishing bend.
+* **Prev / Next**: Navigates to the previous or next bend without returning to the bend navigator.
 
-image::Photo.png[Alt text,width=600]
+NOTE: The availability of certain controls depends on the selected bend and the current configuration. Options such as Setup, Station and Ungroup may not appear for every bend.
 
-== Code block
+== Selecting and Working with Bends
 
-[source,bash]
-----
-git status
-git add .
-git commit -m "Update documentation"
-----
+=== Mouse and Keyboard Actions
 
-== Table
+The bend navigator supports the following actions:
 
 |===
-|Command |Purpose
+|Action |Operation
 
-|git status |Show repository changes
+|Select a bend
+|Click the required bend in the navigator.
 
-|git pull |Get the latest changes
+|Open the editing panel
+|Click the selected bend again.
+
+|Select and open a bend directly
+|Hold `Ctrl` and click the required bend.
+
+|Select multiple bends
+|Click the first bend, then hold `Shift` while clicking the other bends.
+
+|Change bend position
+|Enter a new value in the *Position* field or drag the part horizontally in the 3D view.
 |===
+
+=== Changing the Bend Position
+
+The Position field allows the location of a bend to be adjusted along the machine.
+
+. Open the editing panel for the required bend.
+. Locate the *Position* field.
+. Replace the existing value with the required position.
+. Press `Enter` to apply the change.
+. Observe the updated bend location in the 3D machine view.
+
+The position can also be adjusted by dragging the part horizontally in the 3D view.
+
+=== Using Pre-bending
+.Pre-bending
+image::Pre-bend.png[width=300, float=right]
+
+Pre-bending is useful when a part requires an intermediate bending stage, such as when additional clearance is needed around the die rail.
+
+. Open the editing panel for the required bend.
+. Enable *Pre-bending*.
+. Locate the *Prebend* field that appears.
+. Enter the required pre-bend angle.
+
+For example, a final bend angle of 90 degrees can be achieved in two stages:
+
+[source,text]
+----
+Step 1 – Pre-bend       : 180° → 120°
+Step 2 – Finishing bend : 120° →  90°
+----
+
+The first stage forms the initial bend, and the second stage completes it to the required angle.
+
+== Additional Notes
+
+* Changes made through the panel apply to the currently selected bend.
+* The bend navigator can be used to move between bends and access their individual settings.
+* Some controls are displayed only when they are applicable to the selected bend.
+* Coining depends on the compatibility of the assigned tooling.
+
+== Reference
+
+For further information about Fluxbend and its bending operations, refer to the link:https://trumpf-flux.com/flux-help/[Flux Help] documentation.
