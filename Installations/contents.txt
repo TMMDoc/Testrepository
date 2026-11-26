@@ -1,0 +1,6 @@
+Hardware requirement
+Supported file formats
+Prerequisites
+Server installation
+Client installation
+Change license

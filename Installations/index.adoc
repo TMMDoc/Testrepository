@@ -1,0 +1,10 @@
+= Installations
+
+Following sections explains the pre-requisites and steps required to install Praxis application and connect the same with Server/Client setup.
+
+. xref:hardware requirement[Hardware requirement]
+. xref:supported file formats[Supported file formats]
+. xref:prerequisites[Prerequisites]
+. xref:server installation[Server installation]
+. xref:client installation[Client installation]
+. xref:change license[Change license]

@@ -1,0 +1,3 @@
+= Add or Remove machine
+
+Use Edit command to launch Machine selection dialog. It displays a hierarchical list of all Cutting, Bending machines along with the current selections.

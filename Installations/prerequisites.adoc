@@ -1,0 +1,7 @@
+= Prerequisites
+
+:imagedir: img
+image::img/prerequisites.png[400,400]
+
+:icons : font
+NOTE: Praxis setup displays the below mentioned warning message at the beginning of Installation if the Praxis setup is run without first running the Prerequisites. 

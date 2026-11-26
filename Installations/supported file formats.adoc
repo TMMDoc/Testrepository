@@ -1,0 +1,3 @@
+= Supported file formats
+
+Praxis supports direct CAD import. The availability of import formats depends on the license configuration.
