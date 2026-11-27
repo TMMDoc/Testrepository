@@ -1,54 +1,218 @@
-= Test document
+
+= FluxBend – Sample Test Case Document
+Alphin Kamernisha
+:revnumber: 1.0
+:revdate: 25 November 2026
+:doctype: book
+:toc: left
+:toclevels: 3
+:sectnums:
+:icons: font
+:source-highlighter: rouge
 :imagesdir: img
-:toc:
 
-== Headings
+== Introduction
 
-=== Section level 2
+=== About Flux
 
-==== Section level 3
+Flux is a CAM software solution used in sheet metal manufacturing.
+It helps users program machines by converting sheet metal designs
+into the required manufacturing operations.
 
-== Inline formatting
+=== Overview of Bend CAM
 
-*bold text*
+Bend CAM is a module of Flux used for programming press brake machines.
+It provides tools to configure bending sequences, tooling stations,
+gauging positions and other bending parameters.
 
-_italic text_
+Major capabilities include:
 
-`monospace text`
+* Bending sequence calculation
+* Bend tooling configuration
+* Back-gauge positioning
+* Angle measurement configuration
+* NC program generation
+* Setup report generation
 
-== Lists
+image::fluxbend_Homepage.png[align=center,width=85%]
 
-* First unordered item
-* Second unordered item
+=== Flux Application Interface
 
-. First numbered item
-. Second numbered item
+The Flux interface provides tools for opening, viewing and modifying
+2D drawings and 3D models.
 
-== Links
+image::Flux_Interface.png[align=center,width=85%]
 
+=== Bend CAM Interface
 
+Users can switch to Bend CAM by pressing the B key after opening
+a suitable sheet metal CAD part.
 
-// link:https://example.com[External link]
+The interface provides access to:
 
-== Image
+* Create Bend Data
+* Bend Navigator
+* Edit Bend and Tool Mount
+* Edit Bend Setup
+* Edit Back-Gauges
+* Edit Angle Measurement
+* Bends Spreadsheet
+* Changing the Sequence
+* Adding Setups and Stations
+image::fluxbend_Home page.png[  Flux bend Application Interface, width=90%]
 
-image::Photo.png[Alt text,width=600]
+== Functional Testing
 
-== Code block
+=== Testing Objective
 
-[source,bash]
-----
-git status
-git add .
-git commit -m "Update documentation"
-----
+The objective is to verify that the Bend CAM module performs
+its intended operations correctly.
 
-== Table
+Testing focuses on bend tooling, NC program generation
+and Bend Navigator functionality.
 
+=== Test Scope
+
+[cols="1,2,4,1",options="header"]
 |===
-|Command |Purpose
+|Scenario ID |Scenario Name |Description |Test Cases
 
-|git status |Show repository changes
+|TS01.0001
+|Bend Tooling
+|Verify bend tooling and NC program generation.
+|TC001–TC004
 
-|git pull |Get the latest changes
+|TS01.0002
+|Bend Navigator
+|Verify navigator display and bend status indication.
+|TC005
 |===
+
+== Test Case Details
+
+=== Scenario: Bend Tooling
+
+==== TC001 – Automatic Bend Tooling
+
+*Description:* Verify that a sheet metal part is automatically
+tooled up when switching to Bend CAM.
+
+*Preconditions:*
+* A suitable CAD part is available.
+* Machine and tool inventory are configured.
+
+*Test Steps and Expected Results:*
+
+[cols="1,3,3",options="header"]
+|===
+|Step |Test Steps |Expected Results
+
+|1 |Launch Flux. |Flux should launch successfully.
+|2 |Navigate to File → Open. |File selection interface should appear.
+|3 |Select the required CAD part. |The CAD part should open successfully.
+|4 |Press B to switch to Bend CAM. |Flux should switch to Bend CAM and create the bending solution.
+|===
+
+==== TC002 – NC Program Generation
+
+*Description:* Verify that the NC program is generated automatically
+when the bend solution is created without errors.
+
+*Preconditions:*
+* A bending machine is configured.
+* Machine output folder is configured.
+
+*Test Steps and Expected Results:*
+
+[cols="1,3,3",options="header"]
+|===
+|Step |Test Steps |Expected Results
+
+|1 |Open a sheet metal CAD part. |The part should open successfully.
+|2 |Press B to switch to Bend CAM. |The bending solution should be created.
+|3 |Verify the bend solution. |The solution should be created without errors.
+|4 |Check the configured machine output folder. |The NC program should be generated and saved in the configured folder, if automatic output is enabled.
+|===
+
+==== TC003 – NC Code Regeneration
+
+*Description:* Verify that the NC program can be regenerated
+after modifications are made to the part.
+
+*Preconditions:*
+* The part is successfully tooled up.
+* An NC program has already been generated.
+
+*Test Steps and Expected Results:*
+
+[cols="1,3,3",options="header"]
+|===
+|Step |Test Steps |Expected Results
+
+|1 |Open the previously tooled-up part. |The part should open successfully.
+|2 |Make a modification to the part. |The modification should be applied.
+|3 |Observe the NC-Code button. |The button should become enabled.
+|4 |Click NC-Code or press C. |The NC program should be regenerated successfully.
+|===
+
+==== TC004 – Bend CAM Without CAD Part
+
+*Description:* Verify switching to Bend CAM when no CAD part is open.
+
+*Preconditions:*
+* Flux is launched with no CAD part open.
+
+*Test Steps and Expected Results:*
+
+[cols="1,3,3",options="header"]
+|===
+|Step |Test Steps |Expected Results
+
+|1 |Launch Flux. |Flux should launch successfully.
+|2 |Ensure no CAD part is open. |The workspace should be empty.
+|3 |Press B to switch to Bend CAM. |Bend tooling should not be initiated without an opened CAD part.
+|===
+
+=== Scenario: Bend Navigator
+
+==== TC005 – Bend Navigator Display
+
+*Description:* Verify that the Bend Navigator is displayed
+in the bending view.
+
+*Preconditions:*
+* A sheet metal part is successfully tooled up.
+
+*Test Steps and Expected Results:*
+
+[cols="1,3,3",options="header"]
+|===
+|Step |Test Steps |Expected Results
+
+|1 |Open the imported part in Flux. |The part should open successfully.
+|2 |Press B to switch to Bend CAM. |The bending view should appear.
+|3 |Observe the top edge of the Flux window. |The Bend Navigator should appear.
+|4 |Inspect the displayed bend operations. |The navigator should display the available bend operations.
+|===
+
+.Bend Navigator
+image::bend_navigator.png[  Bend navigator, width=90%, align=center]
+
+==  Conclusion
+
+The test cases documented in this report cover important
+functional operations of the Flux Bend CAM module.
+
+The testing scope includes automatic bend tooling,
+NC program generation, NC code regeneration and
+Bend Navigator display.
+
+These test cases provide a foundation for validating
+the functional behaviour of Bend CAM.
+
+== References
+
+. TRUMPF Flux Help Manual:
+  https://trumpf-flux.com/flux-help/
+
+
